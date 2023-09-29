@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name = "author" content = "Shahad Firas">
+    <meta name = "description" content ="This is a page To display all the info submitted by the user">
+    <link rel= "icon" href="html5.png" type ="image/x-icon">    
+    <link rel="stylesheet" href="main.css" type="text/css">
+    <title>Form Data</title>
+</head>
+<body>
+    <h1>Display user Registration</h1>
+    <fieldset>
+<legend>Display Info:</legend>
+    <div id="display-info"></div>
+<!--JavaScript Code To Display the Info from the excercise2 html file-->
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);// Retrieve the query parameters from the URL
+        const username = urlParams.get('username');// Get the value of the 'username' parameter from the query
+        const email = urlParams.get('email');// Get the value of the 'Email' parameter from the query
+        const firstName = urlParams.get('firstName');// Get the value of the 'First name' parameter from the query
+        const lastName = urlParams.get('lastName');// Get the value of the 'last name' parameter from the query
+        const password = urlParams.get('password');// Get the value of the 'password' parameter from the query
+        const gender = urlParams.get('gender');// Get the value of the 'gender' parameter from the query
+        const address = urlParams.get('address');// Get the value of the 'Address Link' parameter from the query
+        const dateOfBirth = urlParams.get('dateOfBirth');// Get the value of the 'Date of Birth' parameter from the query
+        const interests = urlParams.getAll('Interest'); // Retrieve all checkbox values
+        const major = urlParams.get('major');// Get the value of the 'Major' parameter from the query
+    
+        const displayInfoDiv = document.getElementById('display-info');
+        displayInfoDiv.innerHTML = `
+        
+            <p><strong>User Name:</strong> ${username}</p>
+            <p><strong>First Name:</strong> ${firstName}</p>
+            <p><strong>Last Name:</strong> ${lastName}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Password:</strong> ${password}</p>
+            <p><strong>Gender:</strong> ${gender}</p>
+            <p><strong>Current Address:</strong> ${address}</p>
+            <p><strong>Date of Birth:</strong> ${dateOfBirth}</p>
+            <p><strong>Interests of Sports:</strong> ${interests.join(', ')}</p>
+            <p><strong>Major:</strong> ${major}</p>
+        `;
+    </script>
+    </fieldset>
+</body>
+</html>
